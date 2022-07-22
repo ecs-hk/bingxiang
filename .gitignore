@@ -1,0 +1,8 @@
+# Ignore everything
+*
+# Include dot-files
+!.gitignore
+# Include script and docs
+!bingxiang
+!LICENSE
+!README.md
