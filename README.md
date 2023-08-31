@@ -7,21 +7,23 @@ Symmetric file encryption using openssl
 After cloning the repository:
 
 ```bash
-$ sudo cp bingxiang /usr/local/bin
-$ sudo chmod 755 /usr/local/bin/bingxiang
+sudo cp bingxiang /usr/local/bin
+```
+
+```bash
+sudo chmod 755 /usr/local/bin/bingxiang
 ```
 
 ## Usage
 
-```bash
-$ bingxiang lock /tmp/foo.txt
-enter aes-256-cbc encryption password:
-Verifying - enter aes-256-cbc encryption password:
-Encrypted output file is foo.txt.bbxxa
-```
+The following will prompt for encryption password, and then save encrypted file as `foo.txt.bbxxa`:
 
 ```bash
-$ bingxiang unlock foo.txt.bbxxa
-enter aes-256-cbc decryption password:
-Decrypted output file is foo.txt
+bingxiang lock /tmp/foo.txt
+```
+
+The following will prompt for decryption password, and then save plain text file as `foo.txt`:
+
+```bash
+bingxiang unlock foo.txt.bbxxa
 ```
