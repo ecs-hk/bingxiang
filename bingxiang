@@ -26,12 +26,12 @@ readonly _iterations=5000000
 
 errout() {
         local _msg="${0##*/} error: ${1}"
-        printf '%s\n' "${_msg}"
+        printf '%s\n' "${_msg}" >&2
         exit 1
 }
 
 print_usage_and_exit() {
-        printf '%s\n' "Usage: ${0##*/} lock|unlock input-file"
+        printf '%s\n' "Usage: ${0##*/} lock|unlock input-file" >&2
         exit 1
 }
 
@@ -78,9 +78,9 @@ encrypt_file() {
 }
 
 decrypt_file() {
-	# Remove the extension and put outfile in cwd
+        # Remove the extension and put outfile in cwd
         local _outfile="${_infile%.${_ext}}"
-	_outfile="${_outfile##*/}"
+        _outfile="${_outfile##*/}"
 
         if grep -Evq "\.${_ext}" <<<"${_infile}" ; then
                 errout "I only decrypt .${_ext} files"
